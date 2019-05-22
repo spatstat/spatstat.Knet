@@ -1,0 +1,11 @@
+import(spatstat)
+import(spatstat.utils)
+
+importFrom(Matrix, sparseMatrix)
+importFrom(stats, aggregate, predict)
+
+useDynLib(spatstat.Knet, "createGraphNet", "I_createGraphNet")
+
+export("Knet", "Knetinhom")
+export(".onLoad", ".onAttach")
+
