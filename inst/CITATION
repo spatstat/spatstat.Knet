@@ -1,0 +1,18 @@
+bibentry(bibtype = "Article",
+  title        = "Efficient Code for Second Order Analysis of Events on a Linear Network",
+  author       = c(person(given = "Suman",
+                          family = "Rakshit"),
+                   person(given = "Adrian",
+                          family = "Baddeley"),
+                   person(given = "Gopalan",
+                          family = "Nair")),
+  journal      = "Journal of Statistical Software",
+  year         = "2019",
+  volume       = "90",
+  number       = "1",
+  pages        = "1--37",
+  doi          = "10.18637/jss.v090.i01",
+
+  header       = "To cite spatstat.Knet in publications use:"
+)
+

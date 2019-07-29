@@ -22,18 +22,20 @@
 }
 \source{
   Computed by Suman Rakshit from data provided by Main Roads, Western Australia.
-  Made available as part of the Western Australian
+  Original data made available as part of the Western Australian
   Whole of Government Open Data Policy.
 }
 \references{
-  Rakshit, S., Baddeley, A. and Nair, G. (2019a)
+  Rakshit, S., Baddeley, A. and Nair, G. (2019)
   Efficient code for second order analysis of events on a linear network.
-  \emph{Journal of Statistical Software}, to appear.
-  
+  \emph{Journal of Statistical Software} \bold{90} (1) 1--37.
+  DOI: \code{10.18637/jss.v090.i01} 
+ 
   Rakshit, S., Davies, T., Moradi, M., McSwiggan, G., Nair, G.,
   Mateu, G. and Baddeley, A. (2019b) 
   Fast kernel smoothing of point patterns on a network using 2D convolution.
   \emph{International Statistical Review}, in press.
+  DOI: \code{10.1111/insr.12327}.
 }
 \examples{
 data(waCrashIntensity)

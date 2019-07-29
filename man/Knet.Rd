@@ -47,7 +47,8 @@ Knet(X, r = NULL, freq, ..., verbose=FALSE)
   
   Rakshit, S., Baddeley, A. and Nair, G. (2019)
   Efficient code for second order analysis of events on a linear network.
-  \emph{Journal of Statistical Software}, to appear.
+  \emph{Journal of Statistical Software} \bold{90} (1) 1--37.
+  DOI: \code{10.18637/jss.v090.i01} 
 }
 \examples{
    UC <- unmark(chicago)
