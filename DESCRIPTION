@@ -1,17 +1,17 @@
 Package: spatstat.Knet
 Type: Package
 Title: Extension to 'spatstat' for Large Datasets on a Linear Network
-Version: 1.10-0
-Date: 2019-07-29
+Version: 1.11-0
+Date: 2019-08-08
 Depends: R (>= 3.3.0), spatstat (>= 1.60-0)
 Imports: spatstat.utils, Matrix
-Authors@R: c(person(given="Suman", family="Rakshit", role = c("cre", "aut"),
+Authors@R: c(person(given="Suman", family="Rakshit", role = "aut",
      		     email = "suman.rakshit@curtin.edu.au",
 		     comment=c(ORCID="0000-0003-0052-128X")),
-	     person(given="Adrian", family="Baddeley", role = "ctb",
+	     person(given="Adrian", family="Baddeley", role = "cre",
        	            email = "Adrian.Baddeley@curtin.edu.au",
 		    comment = c(ORCID="0000-0001-9499-8382")))
-Maintainer: Adrian Baddeley <adrian.baddeley@curtin.edu.au>
+Maintainer: Adrian Baddeley <Adrian.Baddeley@curtin.edu.au>
 Description: Extension to the 'spatstat' package, for analysing large datasets
 	     of spatial points on a network. Provides a memory-efficient
 	     algorithm for computing the geometrically-corrected K function.
