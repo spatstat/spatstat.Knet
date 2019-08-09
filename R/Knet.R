@@ -1,7 +1,7 @@
 #'
 #' spatstat.Knet/R/Knet.R
 #'
-#' Copyright (C) 2015-2019 Suman Raskhit and Adrian Baddeley
+#' Copyright (C) 2015-2019 Suman Rakshit and Adrian Baddeley
 #' GNU Public Licence GPL >= 2
 #'
 

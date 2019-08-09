@@ -1,4 +1,8 @@
 README.md
+Reproducibility
+Reproducibility/*
+.git
+.gitignore
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
