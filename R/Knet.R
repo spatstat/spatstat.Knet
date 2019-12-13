@@ -8,6 +8,7 @@
 Knet <- function(X, r = NULL, freq, ..., verbose = FALSE) {
   ## validate data
   stopifnot(is.lpp(X))
+  X <- repairNetwork(X)
   
   if(missing(r) || is.null(r)){
     Mndist <- 0
