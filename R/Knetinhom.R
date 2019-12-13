@@ -8,7 +8,6 @@
 Knetinhom <- function(X, lambda, r = NULL, freq, ..., verbose = FALSE) {
   ## validate data
   stopifnot(is.lpp(X))
-  X <- repairNetwork(X)
   
   if(missing(r) || is.null(r)){
     Mndist <- 0
@@ -39,6 +38,10 @@ Knetinhom <- function(X, lambda, r = NULL, freq, ..., verbose = FALSE) {
                         fatal=FALSE, warn=TRUE)
       if(!ok) stop("Incorrect format for lambda values")
   }
+
+  ## Now repair the internal network data
+  X <- repairNetwork(X)
+  
   ## assemble data 
   ## points: x, y, seg, tp, lambda, freq
   nX <- npoints(X)
