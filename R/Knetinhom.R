@@ -81,7 +81,7 @@ Knetinhom <- function(X, lambda, r = NULL, freq, ..., verbose = FALSE) {
   noVert <- npoints(vertices(L))
   PL <- as.psp(L)
   noEdge <- nobjects(PL)
-  EdgeLengths <- lengths.psp(PL)
+  EdgeLengths <- lengths_psp(PL)
   nX <- nrow(df)
   Vert1 <- L$from
   Vert2 <- L$to

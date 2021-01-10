@@ -17,15 +17,15 @@
 
   The main functions are \code{\link{Knet}} and \code{\link{Knetinhom}}.
   These are counterparts of the functions
-  \code{\link[spatstat]{linearK}}
+  \code{\link[spatstat.linnet]{linearK}}
   and 
-  \code{\link[spatstat]{linearKinhom}}
-  in the \pkg{spatstat} package.
+  \code{\link[spatstat.linnet]{linearKinhom}}
+  in the \pkg{spatstat.linnet} package.
 
-  The \pkg{spatstat} functions
-  \code{\link[spatstat]{linearK}}
+  The \pkg{spatstat.linnet} functions
+  \code{\link[spatstat.linnet]{linearK}}
   and 
-  \code{\link[spatstat]{linearKinhom}}
+  \code{\link[spatstat.linnet]{linearKinhom}}
   are usable (and slightly faster)
   for small datasets, but require substantial amounts of memory.
   For larger datasets,

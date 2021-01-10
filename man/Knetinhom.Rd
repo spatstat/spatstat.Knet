@@ -47,11 +47,11 @@ Knetinhom(X, lambda, r = NULL, freq, ..., verbose=FALSE)
   The algorithm used in this computation is described in Rakshit et al (2019).
 
   The \pkg{spatstat} function
-  \code{\link[spatstat]{linearKinhom}}
+  \code{\link[spatstat.linnet]{linearKinhom}}
   is usable (and slightly faster) for this purpose
   for small datasets, but requires substantial amounts of memory.
   For larger datasets,
-  the function \code{\link{Knetinhom}} is much more efficient.
+  the function \code{Knetinhom} is much more efficient.
 }
 \value{
   Function value table (object of class \code{"fv"}).
