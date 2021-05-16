@@ -3,6 +3,7 @@
 ### Extension to spatstat package for large data sets on a linear network
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spatstat.Knet)](http://cran.r-project.org/web/packages/spatstat.Knet)
+![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.Knet)
 
 This is an _extension_ of the `spatstat` package. 
 
