@@ -3,7 +3,7 @@
 ### Extension to spatstat package for large data sets on a linear network
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spatstat.Knet)](http://cran.r-project.org/web/packages/spatstat.Knet)
-![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.Knet)
+[![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.Knet)](https://github.com/spatstat/spatstat.Knet)
 
 This is an _extension_ of the `spatstat` package. 
 
@@ -36,7 +36,7 @@ from github is through the `remotes` package:
 ```R
 require(remotes)
 install_github('spatstat/spatstat')
-install_github('baddstats/spatstat.Knet')
+install_github('spatstat/spatstat.Knet')
 ```
 
 If you don't have `remotes` installed you should first run
