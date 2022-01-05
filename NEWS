@@ -1,4 +1,30 @@
 
+        CHANGES IN spatstat.Knet VERSION 2.0-0.001
+
+OVERVIEW
+
+    o spatstat.Knet now depends on 'spatstat.random'
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o package dependence
+    This extension package 'spatstat.Knet' now depends on
+    the new package 'spatstat.random'.
+
+        CHANGES IN spatstat.Knet VERSION 2.0-0
+
+OVERVIEW
+
+    o spatstat.Knet now depends on version 2 of the packages
+    'spatstat.geom', 'spatstat.core', 'spatstat.linnet' and 'spatstat'
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o package dependence
+    This extension package 'spatstat.Knet' now depends on version 2
+    of all the sub-packages 'spatstat.geom', 'spatstat.core', 'spatstat.linnet'
+    and 'spatstat'.
+    
         CHANGES IN spatstat.Knet VERSION 1.13-0
 
 OVERVIEW

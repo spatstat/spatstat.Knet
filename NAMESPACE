@@ -1,6 +1,6 @@
-import(spatstat.utils)
-import(spatstat.data)
-import(spatstat.sparse,spatstat.geom,spatstat.core,spatstat.linnet)
+import(spatstat.utils,spatstat.data,spatstat.sparse)
+import(spatstat.geom,spatstat.random,spatstat.core,spatstat.linnet)
+import(spatstat)
 
 importFrom(Matrix, sparseMatrix)
 importFrom(stats, aggregate, predict)
