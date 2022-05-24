@@ -1,4 +1,19 @@
 
+        CHANGES IN spatstat.Knet VERSION 2.0-2
+
+OVERVIEW
+
+    o spatstat.Knet now depends on 'spatstat.explore' and 'spatstat.model'
+    instead of 'spatstat.core'
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o package dependence
+    This extension package 'spatstat.Knet' now depends on
+    the new packages 'spatstat.explore' and 'spatstat.model'
+    instead of the old package 'spatstat.core'.
+
+
         CHANGES IN spatstat.Knet VERSION 2.0-1
 
 OVERVIEW
