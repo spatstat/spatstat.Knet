@@ -1,4 +1,17 @@
 
+        CHANGES IN spatstat.Knet VERSION 3.0
+
+OVERVIEW
+
+    o changes to package dependence
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o package dependence
+    This extension package 'spatstat.Knet' now depends on version 3
+    of the spatstat family.
+    
+
         CHANGES IN spatstat.Knet VERSION 2.0-2
 
 OVERVIEW
