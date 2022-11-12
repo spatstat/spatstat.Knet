@@ -14,7 +14,7 @@
 
 #include "netbase.h"
 
-int malloc_not_working()
+int malloc_not_working(void)
 {
     Rprintf("malloc is not working !!");
     return -1;
