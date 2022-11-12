@@ -1035,12 +1035,12 @@ void FN(createGraphNet)(int *no_of_vertices,
 
   /************ Compute |L|: Total length of the network ********************/
 int Nv = *no_of_vertices;
-int Ne = *no_of_edges;
 int Ncr = *no_of_crashes;
 int Ndis = *no_of_distance;
 double Max_R = *max_r;
 double t = *MAX_Distance;
 #ifndef INHOM
+  int Ne = *no_of_edges;
   double  L=0;
   int edge_count;
   for(edge_count = 0; edge_count < Ne; ++edge_count)
