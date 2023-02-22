@@ -2,7 +2,7 @@
 
 ### Extension to spatstat package for large data sets on a linear network
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spatstat.Knet)](http://cran.r-project.org/web/packages/spatstat.Knet)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spatstat.Knet)](http://CRAN.R-project.org/package=spatstat.Knet)
 [![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.Knet)](https://github.com/spatstat/spatstat.Knet)
 
 This is an _extension_ of the `spatstat` package. 
@@ -22,7 +22,7 @@ of `spatstat.Knet` on CRAN.
 ## Installing the official release
 
 For the most recent **official release** of 
-`spatstat.Knet`, see the [CRAN page](https://cran.r-project.org/web/packages/spatstat.Knet). To install it, just type
+`spatstat.Knet`, see the [CRAN page](https://CRAN.R-project.org/package=spatstat.Knet). To install it, just type
 
 ```R
 install.packages('spatstat.Knet')
