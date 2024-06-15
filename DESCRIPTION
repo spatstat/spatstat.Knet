@@ -1,8 +1,8 @@
 Package: spatstat.Knet
 Type: Package
 Title: Extension to 'spatstat' for Large Datasets on a Linear Network
-Version: 3.0-2
-Date: 2022-11-12
+Version: 3.0-2.001
+Date: 2024-06-15
 Depends: R (>= 3.5.0), spatstat.data (>= 3.0), spatstat.sparse (>= 3.0), spatstat.geom (>= 3.0), spatstat.random (>= 3.0), spatstat.explore, spatstat.model, spatstat.linnet (>= 3.0), spatstat (>= 3.0)
 Imports: spatstat.utils (>= 3.0), Matrix
 Authors@R: c(person(given="Suman",
