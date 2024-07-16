@@ -1,9 +1,17 @@
 
-        CHANGES IN spatstat.Knet VERSION 3.0-3
+        CHANGES IN spatstat.Knet VERSION 3.1-0
 
 OVERVIEW
 
-    o Minor internal changes.
+    o Changes to package dependence.
+
+    o Minor internal improvements.
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o package dependence
+    This extension package 'spatstat.Knet' now depends on
+    the new package 'spatstat.univar'.
 
 
         CHANGES IN spatstat.Knet VERSION 3.0-2

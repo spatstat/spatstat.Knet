@@ -1,5 +1,5 @@
 import(spatstat.utils,spatstat.data,spatstat.sparse)
-import(spatstat.geom,spatstat.random)
+import(spatstat.univar,spatstat.geom,spatstat.random)
 import(spatstat.explore,spatstat.model,spatstat.linnet)
 import(spatstat)
 
