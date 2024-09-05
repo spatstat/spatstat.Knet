@@ -194,7 +194,7 @@ while(pv->edgeID == cr.edgeId){
   /** Allocate space for crash structure to be included
       in the crashList of the PathVertex **/
   Crash *crash,*crash_rev;
-  crash = (Crash *)Calloc(1,Crash);
+  crash = (Crash *)CALLOC(1,Crash);
   /*if(crash==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
   crash->tp        = cr.tp;
@@ -210,7 +210,7 @@ while(pv->edgeID == cr.edgeId){
     return -1;
   }
 
-  crash_rev = (Crash *)Calloc(1,Crash);
+  crash_rev = (Crash *)CALLOC(1,Crash);
   /*if(crash_rev==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
   crash_rev->tp        = (1 - cr.tp);
@@ -268,10 +268,10 @@ int FN(graph_building_with_crash)(Graph *g,
      *******************************************************/
     PathVertex *pv_ptr;
 
-    pv_ptr = (PathVertex *) Calloc(1,PathVertex);
+    pv_ptr = (PathVertex *) CALLOC(1,PathVertex);
     /*if(pv_ptr == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
-    pv_ptr->data = Calloc(1,int);
+    pv_ptr->data = CALLOC(1,int);
 
     *((int *)(pv_ptr->data)) = (i+1);
 
@@ -294,7 +294,7 @@ int FN(graph_building_with_crash)(Graph *g,
 
   /** Allocate space in the heap section of the memory
       for storing crash events **/
-  crash_points = (Crash *) Calloc((*no_of_crashes),Crash);
+  crash_points = (Crash *) CALLOC((*no_of_crashes),Crash);
   /*if(crash_points == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
   /** Get "edgeId" ,"tp" and "frequency" values for every crash
@@ -317,8 +317,8 @@ int FN(graph_building_with_crash)(Graph *g,
 
   for(edge_count=0; edge_count < Ne; ++edge_count){
 
-    int *vert1 = (int *)Calloc(1,int);/*if(vert1==NULL){Rprintf("malloc is not working !!");return -1;}*/
-    int *vert2 = (int *)Calloc(1,int);/*if(vert2==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    int *vert1 = (int *)CALLOC(1,int);/*if(vert1==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    int *vert2 = (int *)CALLOC(1,int);/*if(vert2==NULL){Rprintf("malloc is not working !!");return -1;}*/
     double edgeWeight;
 
     *vert1 = vert_id1[edge_count];
@@ -328,7 +328,7 @@ int FN(graph_building_with_crash)(Graph *g,
     PathVertex      pv_ptr1;
     pv_ptr1.data = (void *)vert1;
 
-    PathVertex *pv_ptr2 = (PathVertex *) Calloc(1,PathVertex);
+    PathVertex *pv_ptr2 = (PathVertex *) CALLOC(1,PathVertex);
     /*if (pv_ptr2 == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
     pv_ptr2->data = (void *)(vert2);
@@ -340,7 +340,7 @@ int FN(graph_building_with_crash)(Graph *g,
     PathVertex  pv_ptr1_rev;
     pv_ptr1_rev.data = (void *)vert2;
 
-    PathVertex *pv_ptr2_rev = (PathVertex *) Calloc(1,PathVertex);
+    PathVertex *pv_ptr2_rev = (PathVertex *) CALLOC(1,PathVertex);
     /*if(pv_ptr2_rev == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
     pv_ptr2_rev->data = (void *)(vert1);
@@ -369,7 +369,7 @@ int FN(graph_building_with_crash)(Graph *g,
 
   }
 
-  Free(crash_points);
+  FREE(crash_points);
 
   return 0;
 }
@@ -387,7 +387,7 @@ int FN(copy_crash_list_v2)(List *copy_from,
     Crash   *cr;
     cr=(Crash *)(list_data(element));
     Crash   *crash; /** Allocate memory for the crash **/
-    crash = (Crash *) Calloc(1,Crash);
+    crash = (Crash *) CALLOC(1,Crash);
     /*if(crash == NULL){Rprintf("malloc is not working !!");return -1;}*/
     crash->edgeId = cr->edgeId;
     crash->tp     = cr->tp;
@@ -416,7 +416,7 @@ int FN(copy_crash_list_rev_v2)(List *copy_from,
     cr=(Crash *)(list_data(element));
 
     Crash   *crash; /** Allocate memory for the crash **/
-    crash = (Crash *)Calloc(1,Crash); /*if(crash == NULL){Rprintf("malloc is not working !!");return -1;}*/
+    crash = (Crash *)CALLOC(1,Crash); /*if(crash == NULL){Rprintf("malloc is not working !!");return -1;}*/
     crash->edgeId = cr->edgeId;
     crash->tp     = (1-cr->tp);
     crash->frequency = cr->frequency;
@@ -478,7 +478,7 @@ int FN(break_crash_list_into_two_lists_rev_v2)(List *cr_list1,
   for(element=list_head(crash_list);element!=NULL;element=list_next(element)){
     cr=(Crash *)(list_data(element));
     if((cr->tp) <= line_prop){
-      Crash *crash1 = (Crash *)Calloc(1,Crash);
+      Crash *crash1 = (Crash *)CALLOC(1,Crash);
       /*if (crash1==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash1->edgeId = e_id1;
       dist_upto_crash = (cr->tp)*edgeLength;
@@ -490,7 +490,7 @@ int FN(break_crash_list_into_two_lists_rev_v2)(List *cr_list1,
       if(FN(ord_list_ins_next)(cr_list1,(void *)(crash1)) != 0) return -1;
     }
     else{
-      Crash *crash2 = (Crash *) Calloc(1,Crash);
+      Crash *crash2 = (Crash *) CALLOC(1,Crash);
       /*if (crash2==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash2->edgeId = e_id2;
       dist_upto_crash = (cr->tp)*edgeLength;
@@ -529,7 +529,7 @@ int FN(break_crash_list_into_one_list)(List *cr_list,
 	element=list_next(element)){
 
       cr = (Crash *)(list_data(element));
-      Crash *crash = (Crash *)Calloc(1,Crash);
+      Crash *crash = (Crash *)CALLOC(1,Crash);
       /*if (crash==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash->edgeId = e_id;
       crash->tp = (1 - (cr->tp));
@@ -547,7 +547,7 @@ int FN(break_crash_list_into_one_list)(List *cr_list,
 	element!=NULL;
 	element=list_next(element)){
       cr = (Crash *)(list_data(element));
-      Crash *crash = (Crash *)Calloc(1,Crash);
+      Crash *crash = (Crash *)CALLOC(1,Crash);
       /*if (crash==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash->edgeId = e_id;
       crash->tp = (cr->tp);
@@ -611,7 +611,7 @@ int FN(break_crash_list_into_two_lists_v2)(List *cr_list1,
   for(element=list_head(crash_list);element!=NULL;element=list_next(element)){
     cr=(Crash *)(list_data(element));
     if((cr->tp) <= line_prop){
-      Crash *crash1 = (Crash *)Calloc(1,Crash);
+      Crash *crash1 = (Crash *)CALLOC(1,Crash);
       /*if(crash1==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash1->edgeId = e_id1;
       dist_upto_crash = (cr->tp)*edgeLength;
@@ -623,7 +623,7 @@ int FN(break_crash_list_into_two_lists_v2)(List *cr_list1,
       if(FN(ord_list_ins_next)(cr_list1,(void *)(crash1)) != 0) return -1;
       /** list_ins_next uses malloc to allocate memory for ListElmt. **/
     } else {
-      Crash *crash2 = (Crash *)Calloc(1,Crash);
+      Crash *crash2 = (Crash *)CALLOC(1,Crash);
       /*if(crash2==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash2->edgeId = e_id2;
       dist_upto_crash = (cr->tp)*edgeLength;
@@ -669,7 +669,7 @@ int FN(break_crash_list_before_max_dist)(List *cr_list,
       element=list_next(element)){
     cr=(Crash *)(list_data(element));
     if((cr->tp) <= line_prop){
-      Crash *crash1 = (Crash *)Calloc(1,Crash);
+      Crash *crash1 = (Crash *)CALLOC(1,Crash);
       /*if (crash1==NULL){Rprintf("malloc is not working !!");return -1;}*/
       crash1->edgeId = e_id;
       dist_upto_crash = (cr->tp)*edgeLength;
@@ -1051,7 +1051,7 @@ double t = *MAX_Distance;
 	      for distances in this vector **/
 
   double   *dist_vec;
-  dist_vec = (double *) Calloc(Ndis,double);
+  dist_vec = (double *) CALLOC(Ndis,double);
   /*if (dist_vec == NULL) {Rprintf("Malloc is not working!\n");return;}*/
   double dist_interval = ((*MAX_Distance) - (*MIN_Distance))/(Ndis - 1);
   int dist_id;
@@ -1060,7 +1060,7 @@ double t = *MAX_Distance;
   }
 
   double *store_inv_mvals;
-  store_inv_mvals = (double *)Calloc(Ndis,double);
+  store_inv_mvals = (double *)CALLOC(Ndis,double);
   /*if (store_inv_mvals == NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
   /**************************************************************************/
@@ -1084,7 +1084,7 @@ double t = *MAX_Distance;
 
   /** Allocate space in the heap section of the memory
       for storing crash events **/
-  crash_points = (Crash *)Calloc(Ncr,Crash);
+  crash_points = (Crash *)CALLOC(Ncr,Crash);
   /*if(crash_points == NULL) {Rprintf("Malloc is not working!\n");return;}*/
   /** Store "edgeId" and "tp" values for every crash in "crash_points" **/
   int crash_count;
@@ -1104,7 +1104,7 @@ double t = *MAX_Distance;
   /**********************************************************************
    *  STEP-1: BUILD THE GRAPH USING EDGE LIST AND CRASH LIST            *
    **********************************************************************/
-  Graph *gBig=(Graph*)Calloc(1,Graph);
+  Graph *gBig=(Graph*)CALLOC(1,Graph);
   /*if(gBig==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
   OK(graph_init)(gBig,match_ptr,destroy_ptr);
@@ -1137,7 +1137,7 @@ double t = *MAX_Distance;
      *  STEP-2: INSERT CRASH POINT AS VERTEX IN THE GRAPH                 *
      **********************************************************************/
 
-    Crash *cr = (Crash *)Calloc(1,Crash);
+    Crash *cr = (Crash *)CALLOC(1,Crash);
     /*if(cr==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     cr->tp = crash_points[iteration].tp;
@@ -1161,9 +1161,9 @@ double t = *MAX_Distance;
 	that are deleted.
     **/
 
-    PathVertex *Vertex1 = (PathVertex *)Calloc(1,PathVertex);
+    PathVertex *Vertex1 = (PathVertex *)CALLOC(1,PathVertex);
     /*if(Vertex1==NULL) {Rprintf("Malloc is not working!\n");return;}*/
-    PathVertex *Vertex2 = (PathVertex *)Calloc(1,PathVertex);
+    PathVertex *Vertex2 = (PathVertex *)CALLOC(1,PathVertex);
     /*if(Vertex2==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     /** Vertex1 and Vertex2 are references ot the edges
@@ -1180,7 +1180,7 @@ double t = *MAX_Distance;
       return;
     }
 
-    Free(cr);
+    FREE(cr);
 
     //Rprintf("Step-2: crash_point_in_graph_as_vertex is successful!\n");
     /*******************************************************************
@@ -1194,20 +1194,20 @@ double t = *MAX_Distance;
 	all edges emanating from the reachable nodes.
     **/
 
-    Graph *g=(Graph*)Calloc(1,Graph);
+    Graph *g=(Graph*)CALLOC(1,Graph);
     /*if(g==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     OK(graph_init)(g,match_ptr,destroy_ptr);
 
-    PathVertex *start=(PathVertex *)Calloc(1,PathVertex);
+    PathVertex *start=(PathVertex *)CALLOC(1,PathVertex);
     /*if(start==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
-    start->data = Calloc(1,int);
+    start->data = CALLOC(1,int);
     *((int *)start->data) = (Nv + 1);
 
     OK(list_init)(&start->crashList,NULL);
 
-    List *Path = (List *)Calloc(1,List);
+    List *Path = (List *)CALLOC(1,List);
     /*if (Path==NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     retval = FN(restricted_shortest_v2)(gBig, start, Path, g, Max_R);
@@ -1222,7 +1222,7 @@ double t = *MAX_Distance;
     /***********************************************************************
      * STEP-4: BUILD GRAPH CONSISTING of the EDGES in SHORTEST-PATH TREE. *
      ***********************************************************************/
-    Graph *gT=(Graph*)Calloc(1,Graph);
+    Graph *gT=(Graph*)CALLOC(1,Graph);
     /*if(gT==NULL) {
       Rprintf("Malloc is not working!\n");
       return;
@@ -1262,7 +1262,7 @@ double t = *MAX_Distance;
     /*******************************************************************
      *  STEP-7: BUILD THE EXTENDED SHORTEST PATH TREE FROM THE "START" NODE. *
      ************************************************************************/
-    List *newPath = (List *)Calloc(1,List);
+    List *newPath = (List *)CALLOC(1,List);
     /*if (newPath==NULL) {
       Rprintf("Malloc is not working!\n");
       return;
@@ -1294,7 +1294,7 @@ double t = *MAX_Distance;
      * AND SORT THE NODES IN NON-DECREASING ORDER OF d-VALUES.
      ********************************************************************/
     List *sortedList;
-    sortedList = (List *)Calloc(1,List);
+    sortedList = (List *)CALLOC(1,List);
     /*if(sortedList == NULL) {
       Rprintf("Malloc is not working!\n");
       return;
@@ -1318,10 +1318,10 @@ double t = *MAX_Distance;
      **********************************************************************/
     int sortedList_size = list_size(sortedList);
 
-    double *time_array = (double *)Calloc(sortedList_size,double);
+    double *time_array = (double *)CALLOC(sortedList_size,double);
     /*if(time_array == NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
-    int *degree_array = (int *)Calloc(sortedList_size,int);
+    int *degree_array = (int *)CALLOC(sortedList_size,int);
     /*if(degree_array == NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     /** time_array is introduced to store the shortest path distances
@@ -1331,10 +1331,10 @@ double t = *MAX_Distance;
 	of the corresponding nodes **/
     OK(create_distance_and_degree_array)(sortedList,time_array,degree_array);
 
-    double *tme_uppr_lmt = (double *)Calloc(sortedList_size,double);
+    double *tme_uppr_lmt = (double *)CALLOC(sortedList_size,double);
     /*if(tme_uppr_lmt == NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
-    int *m_val = (int *)Calloc(sortedList_size,int);
+    int *m_val = (int *)CALLOC(sortedList_size,int);
     /*if(m_val == NULL) {Rprintf("Malloc is not working!\n");return;}*/
 
     int array_size=0;
@@ -1346,8 +1346,8 @@ double t = *MAX_Distance;
 		       sortedList_size,
 		       &array_size);
 
-    tme_uppr_lmt = (double *)Realloc(tme_uppr_lmt,array_size,double);
-    m_val = (int *)Realloc(m_val,array_size,int);
+    tme_uppr_lmt = (double *)REALLOC(tme_uppr_lmt,array_size,double);
+    m_val = (int *)REALLOC(m_val,array_size,int);
 
     //Rprintf("Step-10:  create_m_val_array is successful!\n");
     /******************************************************************
@@ -1399,25 +1399,25 @@ double t = *MAX_Distance;
     //Rprintf("Step-13:  PathVertex START is freed successfully!\n");
 
     OK(graph_destroy)(g);
-    Free(g);
+    FREE(g);
 
     //Rprintf("Step-14:  The Graph g is freed successfully!\n");
 
     OK(path_destroy)(Path);
-    Free(Path);
+    FREE(Path);
 
     OK(path_destroy)(newPath);
-    Free(newPath);
+    FREE(newPath);
 
     OK(path_destroy)(sortedList);
-    Free(sortedList);
+    FREE(sortedList);
 
     OK(graph_destroy)(gT);
-    Free(gT);
+    FREE(gT);
 
     //Rprintf("Step-15:  The Graph gT is freed successfully!\n");
 
-    Free(time_array);Free(degree_array);Free(tme_uppr_lmt);Free(m_val);
+    FREE(time_array);FREE(degree_array);FREE(tme_uppr_lmt);FREE(m_val);
     if(vIter == 1){
       int iter1;
       iter1 = (iteration + 1);
@@ -1443,10 +1443,10 @@ double t = *MAX_Distance;
     K_r[dist_id] = K_Function_Value;
   }
 
-  Free(crash_points);
-  Free(store_inv_mvals);
-  Free(dist_vec);
-  OK(graph_destroy)(gBig); Free(gBig);
+  FREE(crash_points);
+  FREE(store_inv_mvals);
+  FREE(dist_vec);
+  OK(graph_destroy)(gBig); FREE(gBig);
   return;
 }
 
@@ -1535,7 +1535,7 @@ int FN(delete_single_crash_from_crashlist)(List *crlist, Crash *cr){
 
   retval = OK(list_rem_next)(crlist,prev_element,(void **)&data2);
 
-  if(retval == 0){Free(data2);} else{
+  if(retval == 0){FREE(data2);} else{
     Rprintf("list_rem_next did not work!\n"); return -1;
   }
   return 0;
@@ -1556,7 +1556,7 @@ void FN(store_edge_before_deleting)(PathVertex *pth_vertex,
 
     /** pth_vertex information will be stored in adj_vert1 and adj_vertex information will be stored in adj_vert2 **/
 
-    adj_vert2->data = Calloc(1,int); /*if(adj_vert2->data==NULL){Rprintf("malloc did not work!!\n");return;}*/
+    adj_vert2->data = CALLOC(1,int); /*if(adj_vert2->data==NULL){Rprintf("malloc did not work!!\n");return;}*/
     *((int *)(adj_vert2->data)) = *((int *)(adj_vertex->data));
     adj_vert2->edgeID = adj_vertex->edgeID;
     adj_vert2->weight = adj_vertex->weight;
@@ -1567,7 +1567,7 @@ void FN(store_edge_before_deleting)(PathVertex *pth_vertex,
     }
 
     /** Insert the pth_vertex information in adj_vert1 **/
-    adj_vert1->data = Calloc(1,int); /*if(adj_vert1->data==NULL){Rprintf("malloc did not work!!\n");return;}*/
+    adj_vert1->data = CALLOC(1,int); /*if(adj_vert1->data==NULL){Rprintf("malloc did not work!!\n");return;}*/
     *((int *)(adj_vert1->data)) = *((int *)(pth_vertex->data));
     adj_vert1->edgeID = adj_vertex->edgeID;
     adj_vert1->weight = adj_vertex->weight;
@@ -1671,8 +1671,8 @@ int          element_key = 1, edgeCount = (graph->ecount)/2;
 
     int Nv = *no_of_vertices;
     /** Start inserting crash as a node in the graph **/
-    crashNode = (PathVertex *)Calloc(1,PathVertex);/*if(crashNode==NULL){Rprintf("malloc is not working !!");return -1;}*/
-    crashNode->data = Calloc(1,int);/* if(crashNode->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    crashNode = (PathVertex *)CALLOC(1,PathVertex);/*if(crashNode==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    crashNode->data = CALLOC(1,int);/* if(crashNode->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
     *((int *)(crashNode->data)) = (Nv + 1);
     OK(list_init)(&(crashNode->crashList),NULL);
     ret_val = OK(graph_ins_vertex)(graph,crashNode); if(ret_val!= 0){Rprintf("graph_ins_vertex did not work!\n"); return -1;}
@@ -1680,16 +1680,16 @@ int          element_key = 1, edgeCount = (graph->ecount)/2;
     /** Prepare path vertices that will enter in the adjacency list of the crashNode **/
         /** Firstly, (crashPt)------>pth_node   **/
     dist1 = (crashPt->tp)*(adj_vertex->weight);
-    pth_node = (PathVertex *)Calloc(1,PathVertex); /*if(pth_node==NULL){Rprintf("malloc is not working !!");return -1;}*/
-    pth_node->data = Calloc(1,int); /* if(pth_node->data==NULL){Rprintf("malloc is not working !!");return -1;} */
+    pth_node = (PathVertex *)CALLOC(1,PathVertex); /*if(pth_node==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    pth_node->data = CALLOC(1,int); /* if(pth_node->data==NULL){Rprintf("malloc is not working !!");return -1;} */
     *((int *)pth_node->data) = *((int *)pth_vertex->data);
     pth_node->weight = dist1;
     pth_node->edgeID = (edgeCount +1);
     OK(list_init)(&(pth_node->crashList),&destroy_crash);
         /** Secondly, (crashPt)------>adj_node   **/
     dist2 = (adj_vertex->weight - dist1);
-    adj_node = (PathVertex *)Calloc(1,PathVertex); /* if(adj_node==NULL){Rprintf("malloc is not working !!");return -1;} */
-    adj_node->data = Calloc(1,int); /* if(adj_node->data==NULL){Rprintf("malloc is not working !!");return -1;} */
+    adj_node = (PathVertex *)CALLOC(1,PathVertex); /* if(adj_node==NULL){Rprintf("malloc is not working !!");return -1;} */
+    adj_node->data = CALLOC(1,int); /* if(adj_node->data==NULL){Rprintf("malloc is not working !!");return -1;} */
     *((int *)adj_node->data) = *((int *)adj_vertex->data);
     adj_node->weight = dist2;
     adj_node->edgeID = (edgeCount +2);
@@ -1847,13 +1847,13 @@ int FN(extended_sh_path_tree_restricted)(Graph *gLink,
 	  /** Include the breaking points as new vertices
 	      into gTree graph structure **/
 	  if(link_dist1 != 0){
-	    PathVertex *node1 = (PathVertex *)Calloc(1,PathVertex);
+	    PathVertex *node1 = (PathVertex *)CALLOC(1,PathVertex);
 	    /*if(node1==NULL){Rprintf("malloc is not working !!");return -1;}*/
 	    /**
 		Create the first break point and add the edge
 		from pth_vertex to brk_pt1 (pth_vertex--->brk_pt1)
 	    **/
-	    brk_pt1 = (PathVertex *)Calloc(1,PathVertex);
+	    brk_pt1 = (PathVertex *)CALLOC(1,PathVertex);
 	    /*if(brk_pt1 == NULL){Rprintf("malloc is not working !!");return -1;}*/
 	    ++l; ++m;
 	    /** graph_ins_breakpt modifies gTree by entering a new vertex
@@ -1876,10 +1876,10 @@ int FN(extended_sh_path_tree_restricted)(Graph *gLink,
 	    }
 	  }
 	  if(link_dist2 != 0){
-	    PathVertex *node2 = (PathVertex *)Calloc(1,PathVertex);
+	    PathVertex *node2 = (PathVertex *)CALLOC(1,PathVertex);
 	    /*if(node2==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
-	    brk_pt2 = (PathVertex *)Calloc(1,PathVertex);
+	    brk_pt2 = (PathVertex *)CALLOC(1,PathVertex);
 	    /*if(brk_pt2 == NULL){Rprintf("malloc is not working !!");return -1;}*/
 	    ++l;++m;
 
@@ -1979,9 +1979,9 @@ int FN(extended_sh_path_tree_restricted)(Graph *gLink,
 	  }
 	  link_dist = R - dist1;
 	  /** Need to include a breaking point in the tree **/
-	  PathVertex *adj_node = (PathVertex *)Calloc(1,PathVertex);
+	  PathVertex *adj_node = (PathVertex *)CALLOC(1,PathVertex);
 	  /*if(adj_node==NULL){Rprintf("malloc is not working !!");return -1;}*/
-	  brk_pt = (PathVertex *)Calloc(1,PathVertex);
+	  brk_pt = (PathVertex *)CALLOC(1,PathVertex);
 	  /*if(brk_pt==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
 	  adj_node->d = R;
@@ -2267,9 +2267,9 @@ for(element = list_head(&g->adjlists);element != NULL;element = list_next(elemen
 if(indicator1 != 11){
 
     /** Insert "p" as a vertex in "g" **/
-    PathVertex *pth_vert1 = (PathVertex *)Calloc(1,PathVertex); /*if(pth_vert1==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    PathVertex *pth_vert1 = (PathVertex *)CALLOC(1,PathVertex); /*if(pth_vert1==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
-    pth_vert1->data = Calloc(1,int); /*if(pth_vert1->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    pth_vert1->data = CALLOC(1,int); /*if(pth_vert1->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
     *((int *)(pth_vert1->data)) = *((int *)(p->data));
 
@@ -2297,9 +2297,9 @@ if(indicator1 != 11){
    /** Check whether we need to insert "q" as a vertex or not **/
    if(indicator2 != 11){
      /** Insert "q" as a vertex in "g" **/
-     PathVertex *pth_vert2 = (PathVertex *)Calloc(1,PathVertex);
+     PathVertex *pth_vert2 = (PathVertex *)CALLOC(1,PathVertex);
      /*if(pth_vert2==NULL){Rprintf("malloc is not working !!");return -1;}*/
-     pth_vert2->data = Calloc(1,int);
+     pth_vert2->data = CALLOC(1,int);
      /*if(pth_vert2->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
      *((int *)(pth_vert2->data)) = *((int *)(q->data));
 
@@ -2310,9 +2310,9 @@ if(indicator1 != 11){
      }
    }
    /** Insert "q" in the adjacency list of "p" **/
-   PathVertex *adj_node = (PathVertex *)Calloc(1,PathVertex);
+   PathVertex *adj_node = (PathVertex *)CALLOC(1,PathVertex);
    /*if(adj_node==NULL){Rprintf("malloc is not working !!");return -1;}*/
-   adj_node->data = Calloc(1,int);
+   adj_node->data = CALLOC(1,int);
    /*if(adj_node->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
    *((int *)(adj_node->data)) = *((int *)(q->data));
@@ -2361,10 +2361,10 @@ int FN(spTree_restricted_v1)(Graph *graph,
 
   for(el=list_head(P);el!=NULL;el=list_next(el)){
     PathVertex *pv_ptr;
-    pv_ptr = (PathVertex *)Calloc(1,PathVertex);
+    pv_ptr = (PathVertex *)CALLOC(1,PathVertex);
     /*if (pv_ptr == NULL){Rprintf("malloc is not working !!");return -1;}*/
     /** It will constitute the vertex list of graphTree **/
-    pv_ptr->data = Calloc(1,int);/*if(pv_ptr->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
+    pv_ptr->data = CALLOC(1,int);/*if(pv_ptr->data==NULL){Rprintf("malloc is not working !!");return -1;}*/
 
     lst_vertex = (PathVertex *)list_data(el);
 
@@ -2408,10 +2408,10 @@ int FN(spTree_restricted_v1)(Graph *graph,
 /** Allocate space for "Node" to be included in the adjacency list of "prevNode". **/
       PathVertex  *adj_node;
 
-      adj_node = (PathVertex *)Calloc(1,PathVertex);
+      adj_node = (PathVertex *)CALLOC(1,PathVertex);
       /*if (adj_node == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
-      adj_node->data = Calloc(1,int);
+      adj_node->data = CALLOC(1,int);
       /*if (adj_node->data == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
       *((int *)(adj_node->data)) = *((int *)(Node->data));

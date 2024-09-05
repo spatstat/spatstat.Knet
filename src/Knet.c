@@ -13,8 +13,12 @@
 
 */
 
+/* interface to memory allocation */
+#include "memory.h"
+
 /* type definitions */
 #include "networkdef.h"
+
 /* prototypes of functions from netbase.c */
 #include "netbase.h"
 

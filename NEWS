@@ -1,4 +1,10 @@
 
+        CHANGES IN spatstat.Knet VERSION 3.1-1
+
+OVERVIEW
+
+    o Internal changes to satisfy package checker.
+
         CHANGES IN spatstat.Knet VERSION 3.1-0
 
 OVERVIEW
