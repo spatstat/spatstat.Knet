@@ -13,6 +13,7 @@
 #endif
 
 #include "netbase.h"
+#include "memory.h"
 
 int malloc_not_working(void)
 {
@@ -114,7 +115,7 @@ int match_graph(const void *pvPtr1, const void *pvPtr2)
 /*****************************  destroy_crash  ***************************/
 
 void destroy_crash(void *cr){
-    Free(cr);
+    FREE(cr);
 }
 
 /*****************************  path_destroy  ***************************/
@@ -129,7 +130,7 @@ void path_destroy(List *list){
   element = list_head(list);
   while(element != NULL){
     next_element = list_next(element);
-    Free(element);
+    FREE(element);
     element = next_element;
   }
   memset(list,0,sizeof(List));
@@ -147,8 +148,8 @@ void pathVertex_destroy(void *pth_data){
 
   /** Now free the PathVertex structure **/
   int *id =  ((PathVertex *)pth_data)->data;
-  Free(id);
-  Free(pth_data);
+  FREE(id);
+  FREE(pth_data);
   return ;
 }
 
@@ -257,9 +258,9 @@ int list_ins_next(List *list, ListElmt *element, const void *data)
     * Allocate storage for the element.                                      *
     *                                                                        *
     *************************************************************************/
-    new_element = (ListElmt *)Calloc(1,ListElmt);
+    new_element = (ListElmt *)CALLOC(1,ListElmt);
 
-    /*if ((new_element = (ListElmt *)Calloc(1,ListElmt)) == NULL)*/
+    /*if ((new_element = (ListElmt *)CALLOC(1,ListElmt)) == NULL)*/
     /*{*/
 
          /*Rprintf("malloc is not working !!");*/
@@ -349,7 +350,7 @@ int graph_ins_vertex(Graph *graph, const void *data)
     *                                                                           *
     ****************************************************************************/
 
-    if ((adjlist = (AdjList *)Calloc(1,AdjList)) == NULL)
+    if ((adjlist = (AdjList *)CALLOC(1,AdjList)) == NULL)
         return -1;
 
 
@@ -586,7 +587,7 @@ int graph_rem_vertex(Graph *graph, void **data)
     ****************************************************************************/
 
     *data = adjlist->vertex;
-    Free(adjlist);
+    FREE(adjlist);
 
     /****************************************************************************
     *                                                                           *
@@ -672,7 +673,7 @@ void graph_destroy(Graph *graph)
                 graph->destroy(adjlist->vertex);
 
             }
-            Free(adjlist);
+            FREE(adjlist);
 
         }
     }
@@ -765,7 +766,7 @@ int list_rem_next(List *list, ListElmt *element, void **data)
     *                                                                        *
     *************************************************************************/
 
-    Free(old_element);
+    FREE(old_element);
 
     /*************************************************************************
     *                                                                        *
@@ -920,7 +921,7 @@ int graph_ins_breakpt(Graph *graph,PathVertex *node,PathVertex *brk_pt,
 /** This function will be called inside the function "extended_sh_path_tree" if link_dist != 0 **/
 int retval;
 
-node->data = Calloc(1,int); /*if(node->data == NULL){Rprintf("malloc is not working !!");return -1;}*/ /** allocate space to store vertex id **/
+node->data = CALLOC(1,int); /*if(node->data == NULL){Rprintf("malloc is not working !!");return -1;}*/ /** allocate space to store vertex id **/
 
 *((int *)node->data) = vert_id;
 
@@ -929,7 +930,7 @@ list_init(&node->crashList,NULL);
 retval = graph_ins_vertex(graph,node);
 
 /** Create the break point and add the edge informations in order to create (pth_vertex--->brk_pt1) **/
-brk_pt->data = Calloc(1,int); /*if(brk_pt->data == NULL){Rprintf("malloc is not working !!");return -1;}*/
+brk_pt->data = CALLOC(1,int); /*if(brk_pt->data == NULL){Rprintf("malloc is not working !!");return -1;}*/
 
 *((int *)brk_pt->data) = vert_id;
 
