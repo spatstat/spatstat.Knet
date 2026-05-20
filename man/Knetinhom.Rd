@@ -8,7 +8,7 @@
   for a point pattern on a linear network.
 }
 \usage{
-Knetinhom(X, lambda, r = NULL, freq, ..., verbose=FALSE)
+Knetinhom(X, lambda, r = NULL, freq, \dots, rmax=NULL, verbose=FALSE)
 }
 \arguments{
   \item{X}{
@@ -33,6 +33,10 @@ Knetinhom(X, lambda, r = NULL, freq, ..., verbose=FALSE)
   }
   \item{\dots}{
     Ignored.
+  }
+  \item{rmax}{
+    Optional. The maximum desired distance \eqn{r} (when \code{r} is
+    not given). A single positive number.
   }
   \item{verbose}{
     Logical value indicating whether to print progress reports

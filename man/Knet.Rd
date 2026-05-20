@@ -8,7 +8,7 @@
   for a point pattern on a linear network.
 }
 \usage{
-Knet(X, r = NULL, freq, ..., verbose=FALSE)
+Knet(X, r = NULL, freq, \dots, rmax=NULL, verbose=FALSE)
 }
 \arguments{
   \item{X}{
@@ -23,8 +23,12 @@ Knet(X, r = NULL, freq, ..., verbose=FALSE)
     of points on the network. The default 
     frequency is one for every point on the network.
   }
-  \item{...}{
+  \item{\dots}{
     Ignored.
+  }
+  \item{rmax}{
+    Optional. The maximum desired distance \eqn{r} (when \code{r} is
+    not given). A single positive number.
   }
   \item{verbose}{
     A logical for printing iteration number corresponding

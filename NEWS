@@ -1,4 +1,23 @@
 
+        CHANGES IN spatstat.Knet VERSION 3.1-2.001
+
+OVERVIEW
+
+    o Minor improvements.
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o Knet, Knetinhom
+    New argument 'rmax' specifies maximum value of distance r.
+
+BUG FIXES
+
+    o Knet, Knetinhom
+    If 'r' was specified, the resulting object did not contain the same
+    set of r values.
+    Fixed.
+
+
         CHANGES IN spatstat.Knet VERSION 3.1-2
 
 OVERVIEW

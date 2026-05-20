@@ -1,19 +1,26 @@
 #'
 #' spatstat.Knet/R/Knet.R
 #'
-#' Copyright (C) 2015-2019 Suman Rakshit and Adrian Baddeley
+#' Copyright (C) 2015-2026 Suman Rakshit and Adrian Baddeley
 #' GNU Public Licence GPL >= 2
 #'
 
-Knet <- function(X, r = NULL, freq, ..., verbose = FALSE) {
+Knet <- function(X, r = NULL, freq, ..., rmax=NULL, verbose = FALSE) {
   ## validate data
   stopifnot(is.lpp(X))
   X <- repairNetwork(X)
   
-  if(missing(r) || is.null(r)){
+  if(is.null(r)){
     Mndist <- 0
-    Mxdist <- 2* mean(nndist(as.ppp(X)))
+    if(!is.null(rmax)) {
+      check.1.real(rmax)
+      stopifnot(rmax > 0)
+      Mxdist <- rmax
+    } else {
+      Mxdist <- 2 * mean(nndist(as.ppp(X)))
+    }
     noGrid <- 41
+    r <- seq(0, Mxdist, length.out=noGrid)
   }else{
     stopifnot(is.numeric(r))
     Mndist <- min(r)
@@ -21,7 +28,8 @@ Knet <- function(X, r = NULL, freq, ..., verbose = FALSE) {
     noGrid <- length(r)
   }
   stopifnot(noGrid >= 2)
-  maxR <- Mxdist + (Mxdist/100)
+  ##  maxR <- Mxdist + (Mxdist/100)
+  maxR <- Mxdist
   ## assemble data 
   nX <- npoints(X)
   ## points: x, y, seg, tp, freq
@@ -73,7 +81,6 @@ Knet <- function(X, r = NULL, freq, ..., verbose = FALSE) {
          kvalue = as.double(numeric(noGrid)),
          PACKAGE="spatstat.Knet")
   
-  r <- seq(0, maxR, length.out = noGrid)
   df <- data.frame(r=r, theo=r, est=z$kvalue)
   result <- fv(df,
                argu = "r",
