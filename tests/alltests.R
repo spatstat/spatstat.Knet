@@ -11,4 +11,9 @@ local({
   X <- runiflpp(20, L)
   K <- Knet(X)
   if(all(K$est == 0)) stop("Knet failed, when network data are not in order")
+  #'
+  #' check Knet, Knetinhom comply with 'envelope' code
+  Eh <- envelope(X, Knet, nsim=9)
+  fit <- lppm(X ~ x)
+  Ei <- envelope(fit, Knetinhom, lambda=fit, nsim=9)
 })

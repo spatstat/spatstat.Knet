@@ -1,9 +1,9 @@
 
-        CHANGES IN spatstat.Knet VERSION 3.1-2.001
+        CHANGES IN spatstat.Knet VERSION 3.1-3
 
 OVERVIEW
 
-    o Minor improvements.
+    o Minor improvements and bug fixes.
 
 SIGNIFICANT USER-VISIBLE CHANGES
 
@@ -14,7 +14,7 @@ BUG FIXES
 
     o Knet, Knetinhom
     If 'r' was specified, the resulting object did not contain the same
-    set of r values.
+    set of r values. 
     Fixed.
 
 

@@ -7,9 +7,8 @@
 
 This is an _extension_ of the `spatstat` package. 
 
-It computes the K function, pair correlation function
-and inhomogeneous versions of these functions,
-for point pattern on a linear network, using the
+It computes the K function and inhomogeneous K function
+for a point pattern on a linear network, using the
 algorithms described in
 S. Rakshit, A Baddeley and G. Nair (2019)
 Efficient code for second order analysis of events on a linear network.
